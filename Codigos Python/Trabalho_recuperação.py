@@ -10,7 +10,7 @@
 
 # ---------- Funções Utilitárias ----------
 
-def eh_par(numero):
+def par(numero):
     """Verifica se um número é par."""
     return numero % 2 == 0
 
@@ -54,7 +54,7 @@ def main():
             print("Entrada inválida! Digite um número inteiro.")
 
     # 2. Verifica se é par ou ímpar
-    if eh_par(numero_inicial):
+    if par(numero_inicial):
         print(f"O número {numero_inicial} é PAR.")
     else:
         print(f"O número {numero_inicial} é ÍMPAR.")
