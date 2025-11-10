@@ -42,7 +42,7 @@ def contar_positivos_negativos(lista_numeros):
 def main():
     print("=== Análise de Números ===\n")
 
-    # 1. Solicita o primeiro número
+    # Solicita o primeiro número
     while True:
         try:
             numero_inicial = int(input("Digite um número inteiro positivo: "))
@@ -53,7 +53,7 @@ def main():
         except ValueError:
             print("Entrada inválida! Digite um número inteiro.")
 
-    # 2. Verifica se é par ou ímpar
+    # Verifica se é par ou ímpar
     if par(numero_inicial):
         print(f"O número {numero_inicial} é PAR.")
     else:
@@ -62,7 +62,7 @@ def main():
     # Lista para armazenar todos os números digitados
     numeros_digitados = [numero_inicial]
 
-    # 3. Se o número for maior que 10, pede mais 3 números
+    # Se o número for maior que 10, pede mais 3 números
     if numero_inicial > 10:
         print("\nDigite mais 3 números inteiros:")
         novos_numeros = []
@@ -76,24 +76,24 @@ def main():
                 except ValueError:
                     print("Entrada inválida! Digite um número inteiro.")
         
-        # 4. Calcula soma e média
+        # Calcula soma e média
         soma = sum(novos_numeros)
         media = calcular_media(novos_numeros)
         print(f"\nSoma dos 3 números: {soma}")
         print(f"Média dos 3 números: {media:.2f}")
 
-        # 5. Verifica aprovação
+        # Verifica aprovação
         if media >= 7:
             print("Situação: Aprovado ✅")
         else:
             print("Situação: Reprovado ❌")
 
-    # 6. Se o número inicial ≤ 10, calcula o fatorial
+    # Se o número inicial ≤ 10, calcula o fatorial
     else:
         fatorial = calcular_fatorial(numero_inicial)
         print(f"\nO fatorial de {numero_inicial} é: {fatorial}")
 
-    # 7. Conta positivos e negativos
+    # Conta positivos e negativos
     positivos, negativos = contar_positivos_negativos(numeros_digitados)
     print("\n=== Estatísticas Finais ===")
     print(f"Números positivos digitados: {positivos}")
