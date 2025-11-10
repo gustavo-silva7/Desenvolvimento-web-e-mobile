@@ -105,3 +105,18 @@ def main():
 # ---------- Execução do Programa ----------
 if __name__ == "__main__":
     main()
+
+
+
+# Explicação Linha por Linha
+# Cabeçalho com comentários: explica o objetivo do programa, autor e descrição geral.
+# Função par(numero): verifica se o número é par (retorna True) ou ímpar (retorna False).
+# Função calcular_fatorial(n): calcula o fatorial de um número usando um laço for.
+# Função calcular_media(lista_numeros): calcula a média de uma lista de números; retorna 0 se a lista estiver vazia.
+# Função contar_positivos_negativos(lista_numeros): conta quantos números positivos e negativos foram digitados.
+# Função main(): ponto de partida do programa; pede um número inteiro positivo e valida a entrada.
+# Verificação par/ímpar: usa eh_par para informar se o número é par ou ímpar.
+# Se número inicial > 10: pede mais 3 números, calcula soma e média, e imprime se o usuário está "Aprovado" (média >=7) ou "Reprovado".
+# Se número inicial <= 10: calcula e mostra o fatorial do número.
+# Estatísticas finais: usa contar_positivos_negativos para mostrar quantos números positivos e negativos foram digitados, considerando todos os números inseridos.
+# Final do programa: imprime mensagem de encerramento.
