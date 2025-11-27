@@ -1,71 +1,49 @@
 import pygame
-import random
-
+import os
 pygame.init()
 
-# Configurações da janela
-LARGURA = 800
-ALTURA = 600
-tela = pygame.display.set_mode((LARGURA, ALTURA))
-pygame.display.set_caption("Coletar Moedas")
+# Dimensões padrão para celular
+largura = 800
+altura = 600
+tela = pygame.display.set_mode((largura, altura))
+pygame.display.set_caption("Jogo Fernandinho")
 
-# Jogador
-jogador = pygame.Rect(400, 300, 32, 32)
-velocidade = 5
-
-# Moeda
-moeda = pygame.Rect(
-    random.randint(0, 768),
-    random.randint(0, 568),
-    32,
-    32
-)
-
-# Pontuação
+# Variáveis
 pontos = 0
-fonte = pygame.font.SysFont("Arial", 28)
+relogio = pygame.time.Clock()
 
-clock = pygame.time.Clock()
+# Fonte compatível com Android
+fonte = pygame.font.SysFont("arial", 32)
+
+# Carregar imagens de forma compatível
+pasta = os.path.dirname(__file__)
+player = pygame.image.load(os.path.join(pasta, "player.png"))
+player = pygame.transform.scale(player, (80, 80))
+
+x = largura // 2
+y = altura // 2
+vel = 5
+
 rodando = True
-
-# =================== LOOP PRINCIPAL DO JOGO ===================== #
 while rodando:
-    clock.tick(60)  # 60 FPS
+    relogio.tick(60)
 
-    # Eventos
-    for evento in pygame.event.get():
-        if evento.type == pygame.QUIT:
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT:
             rodando = False
 
-    # Movimento do jogador
+    # Movimentação (teclado virtual do Pydroid funciona)
     teclas = pygame.key.get_pressed()
-    if teclas[pygame.K_LEFT]:
-        jogador.x -= velocidade
-    if teclas[pygame.K_RIGHT]:
-        jogador.x += velocidade
-    if teclas[pygame.K_UP]:
-        jogador.y -= velocidade
-    if teclas[pygame.K_DOWN]:
-        jogador.y += velocidade
+    if teclas[pygame.K_LEFT]:  x -= vel
+    if teclas[pygame.K_RIGHT]: x += vel
+    if teclas[pygame.K_UP]:    y -= vel
+    if teclas[pygame.K_DOWN]:  y += vel
 
-    # Limites da tela
-    jogador.x = max(0, min(jogador.x, LARGURA - jogador.width))
-    jogador.y = max(0, min(jogador.y, ALTURA - jogador.height))
+    tela.fill((20, 20, 20))
+    tela.blit(player, (x, y))
 
-    # Colisão com a moeda
-    if jogador.colliderect(moeda):
-        pontos += 1
-        moeda.x = random.randint(0, 768)
-        moeda.y = random.randint(0, 568)
-
-    # --- Desenho na tela ---
-    tela.fill((0, 0, 0))  # fundo preto
-    pygame.draw.rect(tela, (0, 120, 255), jogador)  # jogador azul
-    pygame.draw.rect(tela, (255, 215, 0), moeda)  # moeda amarela
-
-    # Pontuação
-    texto = fonte.render(f"Pontos: {pontos}", True, (255, 255, 255))
-    tela.blit(texto, (10, 10))
+    texto = fonte.render(f"Pontos: {pontos}", True, (255,255,255))
+    tela.blit(texto, (20, 20))
 
     pygame.display.update()
 
