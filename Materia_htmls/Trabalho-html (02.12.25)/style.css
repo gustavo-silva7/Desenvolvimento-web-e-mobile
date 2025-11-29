@@ -84,12 +84,12 @@ header {
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-.skills {
+.botao {
     list-style: none;
     margin-top: 20px;
 }
 
-.skills li {
+.botao li {
     background: #f1f1f1;
     padding: 10px;
     margin-bottom: 10px;
@@ -97,7 +97,7 @@ header {
     transition: 0.3s;
 }
 
-.skills li:hover {
+.botao li:hover {
     background: #007bff;
     color: white;
 }
