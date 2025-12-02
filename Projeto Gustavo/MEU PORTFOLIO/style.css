@@ -1,7 +1,15 @@
 body{
     background-color: black;
-    /* text-align: center; */
     color: white;
+}
+
+header{
+    background-color: aqua;
+}
+.minha-foto{
+    width: 20px;
+    border-radius: 50px;
+    align-items: flex-end;
 }
 
 h3{
