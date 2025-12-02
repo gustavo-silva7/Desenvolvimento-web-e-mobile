@@ -1,62 +1,70 @@
-body{
+/* RESET GERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* ESTILO GERAL */
+body {
     background-color: black;
     color: white;
 }
 
-header{
+/* HEADER */
+header {
     width: 100%;
     background-color: rgb(33, 99, 99);
+    padding: 10px 0;
 }
 
+/* LOGO + TÍTULO */
 .alinhar-logo {
-    width: 500px;
-    margin: 20px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-}
-
-.alinhar-logo {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
     align-items: center;
     gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-} 
+}
 
 .logo {
-    width: 50px;
-    border-radius: 50px;
-    align-items: flex-end;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-h3{
+h3 {
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 22px;
 }
 
-.alinhar p{
+/* SEÇÕES COM TEXTO + IMAGEM */
+.alinhar {
+    max-width: 800px;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Parágrafos */
+.alinhar p {
     width: 300px;
-    margin: 20px;
     text-align: justify;
 }
 
-.alinhar{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
+/* Imagem dentro da seção */
 .alinhar img {
     width: 250px;
     border-radius: 10px;
-    margin-left: 30px;
+    margin-left: 20px;
+    object-fit: cover;
 }
 
-
-
-
+/* NAVBAR */
 .nav-container {
     max-width: 1100px;
     margin: auto;
@@ -66,11 +74,7 @@ h3{
     justify-content: space-between;
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-}
-
+/* Menu desktop */
 .menu {
     list-style: none;
     display: flex;
@@ -86,10 +90,11 @@ h3{
 }
 
 .menu li a:hover {
-    background: #007bff;
+    background: blue;
     color: white;
 }
 
+/* Toggle para mobile */
 #menu-toggle {
     display: none;
 }
@@ -98,4 +103,51 @@ h3{
     display: none;
     font-size: 28px;
     cursor: pointer;
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=- */
+/* RESPONSIVIDADE */
+/* -=-=-=-=-=-=-=-=-=-=-=- */
+@media (max-width: 768px) {
+
+    /* Menu vira vertical e aparece via toggle */
+    .menu {
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: white;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        display: none;
+    }
+
+    #menu-toggle:checked~.menu {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+        color: white;
+    }
+
+    /* Seção com imagem fica vertical */
+    .alinhar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .alinhar p {
+        width: 90%;
+    }
+
+    .alinhar img {
+        margin-left: 0;
+        width: 80%;
+    }
+
+    .alinhar-logo {
+        flex-direction: column;
+    }
 }
