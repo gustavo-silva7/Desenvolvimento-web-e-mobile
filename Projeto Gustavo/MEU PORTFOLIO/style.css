@@ -1,33 +1,35 @@
-/* RESET GERAL */
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* ESTILO GERAL */
-body {
+body{
     background-color: black;
     color: white;
 }
 
-/* HEADER */
-header {
+header{
     width: 100%;
     background-color: rgb(33, 99, 99);
-    padding: 10px 0;
+    padding: 10px;
 }
 
-/* LOGO + TÍTULO */
+/* .alinhar-logo {
+    width: 500px;
+    margin: 20px;
+     
+}*/
+
 .alinhar-logo {
-    max-width: 800px;
-    margin: 0 auto;
     padding: 20px;
     display: flex;
     align-items: center;
     gap: 20px;
-}
+    max-width: 800px;
+    margin: 0 auto;
+} 
 
 .logo {
     width: 60px;
@@ -36,35 +38,28 @@ header {
     object-fit: cover;
 }
 
-h3 {
-    text-align: center;
-    font-size: 22px;
-}
-
-/* SEÇÕES COM TEXTO + IMAGEM */
-.alinhar {
-    max-width: 800px;
-    margin: 40px auto;
+.alinhar{
     display: flex;
     align-items: center;
     gap: 20px;
+    max-width: 800px;
+    margin: 40px auto;
 }
 
-/* Parágrafos */
 .alinhar p {
     width: 300px;
+    margin: 30px;
     text-align: justify;
+
 }
 
-/* Imagem dentro da seção */
 .alinhar img {
     width: 250px;
     border-radius: 10px;
-    margin-left: 20px;
+    margin-left: 40px;
     object-fit: cover;
 }
 
-/* NAVBAR */
 .nav-container {
     max-width: 1100px;
     margin: auto;
@@ -74,7 +69,6 @@ h3 {
     justify-content: space-between;
 }
 
-/* Menu desktop */
 .menu {
     list-style: none;
     display: flex;
@@ -94,7 +88,6 @@ h3 {
     color: white;
 }
 
-/* Toggle para mobile */
 #menu-toggle {
     display: none;
 }
@@ -105,49 +98,28 @@ h3 {
     cursor: pointer;
 }
 
-/* -=-=-=-=-=-=-=-=-=-=-=- */
-/* RESPONSIVIDADE */
-/* -=-=-=-=-=-=-=-=-=-=-=- */
-@media (max-width: 768px) {
+h3 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
 
-    /* Menu vira vertical e aparece via toggle */
-    .menu {
-        position: absolute;
-        top: 80px;
-        right: 20px;
-        background: white;
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px;
-        border-radius: 10px;
-        display: none;
+h3:hover {
+    background: linear-gradient(90deg, red, blue, yellow, red);
+    background-size: 300%;
+    background-clip: text;
+    color: transparent;
+    animation: glow 3s linear infinite;
+}
+
+/* movimento do degradê */
+@keyframes glow {
+    0% {
+        background-position: 0%
     }
-
-    #menu-toggle:checked~.menu {
-        display: flex;
-    }
-
-    .menu-icon {
-        display: block;
-        color: white;
-    }
-
-    /* Seção com imagem fica vertical */
-    .alinhar {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .alinhar p {
-        width: 90%;
-    }
-
-    .alinhar img {
-        margin-left: 0;
-        width: 80%;
-    }
-
-    .alinhar-logo {
-        flex-direction: column;
+    100% {
+        background-position: 300%
     }
 }
