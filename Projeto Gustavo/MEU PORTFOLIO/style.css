@@ -123,3 +123,49 @@ h3:hover {
         background-position: 300%
     }
 }
+
+
+
+.carrossel {
+    position: relative;
+    width: 400px;
+    /* ajuste como quiser */
+    height: 250px;
+    overflow: hidden;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
