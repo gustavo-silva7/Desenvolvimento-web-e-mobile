@@ -123,15 +123,3 @@ h3:hover {
         background-position: 300%
     }
 }
-
-
-.card {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 0.8s ease;
-}
-
-.card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
