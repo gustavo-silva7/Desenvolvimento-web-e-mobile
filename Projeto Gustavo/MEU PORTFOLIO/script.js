@@ -1,3 +1,6 @@
+console.log("JS funcionando a partir de um arquivo externo!");
+
+
 const cards = document.querySelectorAll('.card');
 
 function showCardsOnScroll() {
