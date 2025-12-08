@@ -131,7 +131,6 @@ h3:hover {
 .carrossel {
     position: relative;
     width: 300px;
-    /* ajuste como quiser */
     height: 200px;
     overflow: hidden;
     margin: 20px auto;
