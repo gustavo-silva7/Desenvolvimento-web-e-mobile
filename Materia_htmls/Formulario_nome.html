@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAUDAÇÃO - Exercicio 4</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input{
+            padding: 8px;
+            width: 200px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button{
+            padding: 8px 15px;
+            margin-left: 5px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background-color: #2196f3;
+            color: white;
+        }
+
+        #resultado{
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>SAUDAÇÃO</h1>
+    <input type="text" id="nome" placeholder="Digite seu nome">
+    <button onclick="saudar()">ENVIAR</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function saudar(){
+            const nome = document.getElementById("nome").value;
+            const resultado = document.getElementById("resultado");
+
+            if (nome.trim() === ""){
+                resultado.textContent = "Por favor, digite seu nome";
+            } else {
+                resultado.textContent = `Olá, ${nome}! Seja bem-vindo(a)!`;
+            }
+        }
+    </script>
+</body>
+</html>
