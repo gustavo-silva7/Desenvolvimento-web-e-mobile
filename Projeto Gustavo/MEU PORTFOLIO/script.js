@@ -17,3 +17,4 @@ document.querySelector('.prev').addEventListener('click', () => {
 function updateCarousel() {
     slides.style.transform = `translateX(${-index * 100}%)`;
 }
+
