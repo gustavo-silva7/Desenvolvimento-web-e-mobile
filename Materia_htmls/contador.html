@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador - Exercicio 3</title>
+    <style>
+        body{
+            font-family: arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #valor{
+            font-size: 40px;
+            margin: 20px;
+            display: inline-block;
+            min-width: 60px;
+        }
+
+        button{
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none
+        }
+    </style>
+</head>
+<body>
+    <h1>CONTADOR</h1>
+    <button onclick="diminuir()">-</button>
+    <span id="valor">0</span>
+    <button onclick="aumentar()">+</button>
+
+    <script>
+        let Contador = 0
+
+        function atualiza_tela(){
+            document.getElementById("valor").textContent = Contador;
+        }
+
+        function aumentar(){
+            Contador++;
+            atualiza_tela();
+        }
+
+        function diminuir(){
+            Contador--;
+            atualiza_tela();
+        }
+    </script>
+</body>
+</html>
