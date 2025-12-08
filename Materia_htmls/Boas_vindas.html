@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usando JavaScript - Exercicio 1</title>
+    <style>
+        *{
+             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button{
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        button:hover{
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao JavaScript</h1>
+    <p id="msg">Clique no botão para mudar a mensagem</p>
+    <button onclick="mudarmsg()">CLIQUE AQUI</button>
+
+    <script>
+        function mudarmsg() {
+            document.getElementById("msg").textContent = "PARABÉNS, VOCÊ USOU JAVASCRIPT!"
+        }
+    </script>
+</body>
+</html>
