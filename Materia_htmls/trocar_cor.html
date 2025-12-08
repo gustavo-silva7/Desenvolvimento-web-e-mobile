@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocar cor de fundo -  Exercicio 2</title>
+    <style>
+        body{
+            font-family: arial, sans-serif;
+            text-align: center;
+            padding-top: 40px;
+            transition: background-color 0.5s;
+        }
+
+        button{
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>TROQUE A COR DE FUNDO</h1>
+    <button onclick="mudacor('red')">VERMELHO</button>
+    <button onclick="mudacor('green')">VERDE</button>
+    <button onclick="mudacor('blue')">AZUL</button>
+
+    <script>
+        function mudacor(cor){
+            document.body.style.backgroundColor = cor;
+        }
+    </script>
+</body>
+</html>
