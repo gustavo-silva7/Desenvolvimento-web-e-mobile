@@ -73,6 +73,8 @@ header{
     list-style: none;
     display: flex;
     gap: 25px;
+    align-items: center;
+    text-align: justify;
 }
 
 .menu li a {
