@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas - Exercicio 5</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', serif;
+            max-width: 400px;
+            margin: 40px auto;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        #container{
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        input{
+            flex: 1px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button { 
+            padding: 8px 12px; 
+            border-radius: 4px; 
+            border: none; 
+            cursor: pointer; 
+            background-color: #673AB7; 
+            color: white; 
+        } 
+        ul { 
+            list-style: none; 
+            padding-left: 0; 
+        } 
+        li { 
+            background-color: #f3f3f3; 
+            padding: 8px; 
+            margin-bottom: 5px; 
+            border-radius: 4px; 
+        } 
+    </style>
+</head>
+<body>
+    <h1>LISTA DE TAREFAS</h1>
+    <div id="container">
+        <input type="text" id="tarefas" placeholder="Digite uma tarefa">
+        <button onclick="adicionar()">ADICIONAR</button>
+    </div>
+
+    <ul id="lista"></ul>
+
+    <script>
+        function adicionar(){
+            const input = document.getElementById("tarefas");
+            const texto = input.value.trim();
+
+            if (texto === ""){
+                alert("DIGITE UMA TAREFA");
+                return;
+            }
+
+            const lista = document.getElementById("lista");
+            const li = document.createElement("li");
+            li.textContent = texto;
+
+            lista.appendChild(li);
+            input.value = "";
+            input.focus();
+        }
+    </script>
+</body>
+</html>
