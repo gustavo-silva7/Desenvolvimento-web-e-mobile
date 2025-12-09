@@ -1,176 +1,112 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+:root{
+  --bg:#ffffff;
+  --text:#111827;
+  --primary:#2563eb;
+  --card:#f8fafc;
 }
 
+body.theme-dark{
+  --bg:#0b1220;
+  --text:#e6eef8;
+  --primary:#60a5fa;
+  --card:#071023;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
-    background-color: black;
-    color: white;
+  margin:0;
+  font-family: Inter, sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
-header{
-    width: 100%;
-    background-color: rgb(33, 99, 99);
-    padding: 10px;
+.container{max-width:1000px;margin:0 auto;padding:20px}
+
+.site-header{
+  padding:12px 0;
+  border-bottom:1px solid rgba(0,0,0,0.1);
 }
 
-/* .alinhar-logo {
-    width: 500px;
-    margin: 20px;
-     
-}*/
-
-.alinhar-logo {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-} 
-
-.logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
+.site-header .container{
+  display:flex;
+  align-items:center;
+  gap:16px;
 }
 
-.alinhar{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    max-width: 800px;
-    margin: 40px auto;
+.logo{margin:0;font-size:1.2rem}
+
+.main-nav{display:flex;gap:12px;margin-left:12px}
+.main-nav .nav-link{
+  color:var(--text);
+  text-decoration:none;
+  padding:6px 8px;
+  border-radius:6px;
+}
+.main-nav .nav-link:hover{
+  background:rgba(0,0,0,0.05);
 }
 
-.alinhar p {
-    width: 300px;
-    margin: 30px;
-    text-align: justify;
-
+.actions{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
 }
 
-.alinhar img {
-    width: 250px;
-    border-radius: 10px;
-    margin-left: 40px;
-    object-fit: cover;
+.btn{
+  background:var(--primary);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  text-decoration:none;
 }
 
-.nav-container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.hero{
+  padding:60px 0;
+  background:linear-gradient(180deg, rgba(37,99,235,0.1), transparent);
 }
 
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    text-align: justify;
+.section{padding:40px 0}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
 }
 
-.menu li a {
-    text-decoration: none;
-    color: black;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: 0.3s;
+.card{
+  background:var(--card);
+  padding:14px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
-.menu li a:hover {
-    background: blue;
-    color: white;
+.card img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:8px;
 }
 
-#menu-toggle {
-    display: none;
+.form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  max-width:500px;
 }
 
-.menu-icon {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
+.form input,.form textarea{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
 }
 
-h3 {
-    text-align: center;
-    font-size: 32px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: 0.5s;
+.site-footer{
+  border-top:1px solid rgba(0,0,0,0.1);
+  padding:16px 0;
+  text-align:center;
 }
 
-h3:hover {
-    background: linear-gradient(90deg, red, blue, yellow, red);
-    background-size: 300%;
-    background-clip: text;
-    color: transparent;
-    animation: glow 3s linear infinite;
-}
-
-/* movimento do degradê */
-@keyframes glow {
-    0% {
-        background-position: 0%
-    }
-    100% {
-        background-position: 300%
-    }
-}
-
-.Meus-projetos{
-    text-align: center;
-}
-
-
-/*Teste do JS*/
-.carrossel {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    overflow: hidden;
-    margin: 20px auto;
-    border-radius: 10px;
-}
-
-.slides {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slides img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 8px 14px;
-    cursor: pointer;
-    border-radius: 6px;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
+.hidden{display:none !important}

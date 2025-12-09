@@ -1,70 +1,109 @@
-<!-- Criar uma página HTML que funciona como um portfólio em uma única tela, mas com um detalhe: cada seção do portfólio
-(sobre você, habilidades, projetos e contato) deve aparecer como se fosse uma "cartinha" virada para frente, e ao rolar
-a página as cartas deslizam suavemente para dentro da tela, uma por vez, como se estivessem entrando no palco.
-
-Nada de animação obrigatória, nada de JavaScript obrigatório — apenas o conceito: uma página composta de “cartas”
-independentes, cada uma com sua identidade visual, alinhadas verticalmente.
-
-O desafio é inventar a estilização, a posição, o ritmo visual e como essas cartas convivem entre si. -->
-
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEU PORTFÓLIO</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Turma Desenvolvimento Web & Mobile</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <nav class="nav-container">  
-            <!-- <img src="imagens/minha-foto.jpg" alt="Minha foto" class="logo"> -->
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">☰</label>
-            <ul class="menu">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
 
-    </header>
-    <section id="inicio">
-        <h3>Olá seja muito bem vindo ao meu portfólio</h3>
-    </section>
-    
-    <div class="alinhar">
-        <img src="imagens/imagem-portifolio.avif" alt="Imagen ilustrativa">
-        <p> 
-            Sou um desenvolvedor apaixonado por tecnologia e pela criação de soluções que tornam ideias reais. Busco sempre aprender
-            novas ferramentas, aprimorar minhas habilidades e transformar desafios em projetos práticos e bem estruturados. Meu foco
-            é escrever código claro, eficiente e que contribua para experiências digitais de qualidade.
-        </p>
+<body class="theme-light">
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo">Turma Dev Web & Mobile</h1>
+    <nav class="main-nav">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#sobre" class="nav-link">Sobre</a>
+      <a href="#alunos" class="nav-link">Alunos</a>
+      <a href="#projetos" class="nav-link">Projetos</a>
+      <a href="#contato" class="nav-link">Contato</a>
+    </nav>
+    <div class="actions">
+      <button id="themeToggle" class="btn">Tema</button>
+      <button id="toggleAlunos" class="btn">Mostrar/Esconder Alunos</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="home" class="hero container">
+  <h2>Bem-vindo à Turma</h2>
+  <p>Estudamos desenvolvimento web e mobile criando interfaces modernas e funcionais.</p>
+  <a class="btn" data-target="#projetos">Ver projetos</a>
+</section>
+
+<section id="sobre" class="section container">
+  <h3>Sobre a Turma</h3>
+  <p>Somos uma equipe dedicada ao estudo de HTML, CSS, JavaScript e ferramentas modernas.</p>
+</section>
+
+<section id="alunos" class="section container">
+  <h3>Alunos / Equipe</h3>
+  <div id="alunosGrid" class="grid">
+    <div class="card">
+      <img src="imagens/frontend.png">
+      <h4>Aluno 1</h4>
+      <p>Front-end</p>
     </div>
 
-    <div class="Meus-projetos">
-        <p>
-            Olá, meu nome é Gustavo silva, sou estudante de desenvolvimento web e mobile estes são alguns dos meus projetos:
-        </p>
+    <div class="card">
+      <img src="">
+      <h4>Aluno 2</h4>
+      <p>Mobile</p>
     </div>
 
-    <div class="carrossel">
-        <div class="slides">
-            <img src="imagens/img1.jpg" alt="Imagem 1">
-            <img src="imagens/img2.jpg" alt="Imagem 2">
-            <img src="imagens/img3.png" alt="Imagem 3">
-        </div>
-    
-        <button class="btn prev">⟨</button>
-        <button class="btn next">⟩</button>
+    <div class="card">
+      <img src="">
+      <h4>Aluno 3</h4>
+      <p>Back-end</p>
     </div>
-    <div>
-        <li>]
-            
-        </li>
+  </div>
+</section>
+
+<section id="projetos" class="section container">
+  <h3>Projetos</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>Projeto 1</h4>
+      <p>Aplicativo de receitas responsivo.</p>
     </div>
-    
+
+    <div class="card">
+      <h4>Projeto 2</h4>
+      <p>Portfólio coletivo da turma.</p>
+    </div>
+
+    <div class="card">
+      <h4>Projeto 3</h4>
+      <p>Jogo educativo simples.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="section container">
+  <h3>Contato</h3>
+  <form id="contactForm" class="form">
+    <label>Nome</label>
+    <input id="nome" required>
+
+    <label>Email</label>
+    <input id="email" type="email" required>
+
+    <label>Mensagem</label>
+    <textarea id="mensagem" rows="4" required></textarea>
+
+    <button class="btn" type="submit">Enviar</button>
+  </form>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2025 Turma Desenvolvimento Web & Mobile</p>
+</footer>
 
 <script src="script.js"></script>
-</body> 
-</html> 
+</body>
+</html>
