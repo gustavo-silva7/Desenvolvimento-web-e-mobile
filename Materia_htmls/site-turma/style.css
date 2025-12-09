@@ -76,12 +76,16 @@ header {
     padding: 60px 20px;
 }
 
-.foto {
-    display: block;
-    margin: 20px auto;
-    max-width: 350px;
+.carrosel {
+    /* background-image:url(https://th.bing.com/th/id/OIP.RJ2tp6BBEGHmA68zrxjwXQHaHa?w=205&h=205&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3); */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* display: block;
+    margin: 20px auto; */
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    width: 20px;
+    height: 20px;
 }
 
 .botao {
@@ -109,27 +113,3 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-@media (max-width: 768px) {
-    .menu {
-        position: absolute;
-        top: 75px;
-        right: 20px;
-        flex-direction: column;
-        background: white;
-        width: 180px;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        display: none;
-    }
-
-    #menu-toggle:checked ~ .menu {
-        display: flex;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-}
-

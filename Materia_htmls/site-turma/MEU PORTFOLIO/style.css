@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+header{
+    width: 100%;
+    background-color: rgb(33, 99, 99);
+    padding: 10px;
+}
+
+/* .alinhar-logo {
+    width: 500px;
+    margin: 20px;
+     
+}*/
+
+.alinhar-logo {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+} 
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.alinhar{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.alinhar p {
+    width: 300px;
+    margin: 30px;
+    text-align: justify;
+
+}
+
+.alinhar img {
+    width: 250px;
+    border-radius: 10px;
+    margin-left: 40px;
+    object-fit: cover;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.menu li a:hover {
+    background: blue;
+    color: white;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+h3 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+h3:hover {
+    background: linear-gradient(90deg, red, blue, yellow, red);
+    background-size: 300%;
+    background-clip: text;
+    color: transparent;
+    animation: glow 3s linear infinite;
+}
+
+/* movimento do degradê */
+@keyframes glow {
+    0% {
+        background-position: 0%
+    }
+    100% {
+        background-position: 300%
+    }
+}
+
+.Meus-projetos{
+    text-align: center;
+}
+
+
+/*Teste do JS*/
+.carrossel {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}

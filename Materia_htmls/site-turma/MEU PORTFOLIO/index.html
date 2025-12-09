@@ -1,0 +1,75 @@
+<!-- Criar uma página HTML que funciona como um portfólio em uma única tela, mas com um detalhe: cada seção do portfólio
+(sobre você, habilidades, projetos e contato) deve aparecer como se fosse uma "cartinha" virada para frente, e ao rolar
+a página as cartas deslizam suavemente para dentro da tela, uma por vez, como se estivessem entrando no palco.
+
+Nada de animação obrigatória, nada de JavaScript obrigatório — apenas o conceito: uma página composta de “cartas”
+independentes, cada uma com sua identidade visual, alinhadas verticalmente.
+
+O desafio é inventar a estilização, a posição, o ritmo visual e como essas cartas convivem entre si. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEU PORTFÓLIO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">  
+            <img src="imagens/minha-foto.jpg" alt="Minha foto" class="logo">
+            <div class="alinhar-logo">
+                <ul>
+                    <li>Nome: Gustavo; Raian; Caio; </li>
+                </ul> 
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">☰</label>
+            <ul class="menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <section id="inicio">
+        <h3>Olá seja muito bem vindo ao meu portfólio</h3>
+    </section>
+    
+    <div class="alinhar">
+        <img src="imagens/imagem-portifolio.avif" alt="Imagen ilustrativa">
+        <p> 
+            Sou um desenvolvedor apaixonado por tecnologia e pela criação de soluções que tornam ideias reais. Busco sempre aprender
+            novas ferramentas, aprimorar minhas habilidades e transformar desafios em projetos práticos e bem estruturados. Meu foco
+            é escrever código claro, eficiente e que contribua para experiências digitais de qualidade.
+        </p>
+    </div>
+
+    <div class="Meus-projetos">
+        <p>
+            Olá, meu nome é Gustavo silva, sou estudante de desenvolvimento web e mobile estes são alguns dos meus projetos:
+        </p>
+    </div>
+
+    <div class="carrossel">
+        <div class="slides">
+            <img src="imagens/img1.jpg" alt="Imagem 1">
+            <img src="imagens/img2.jpg" alt="Imagem 2">
+            <img src="imagens/img3.png" alt="Imagem 3">
+        </div>
+    
+        <button class="btn prev">⟨</button>
+        <button class="btn next">⟩</button>
+    </div>
+    <div>
+        <li>]
+            
+        </li>
+    </div>
+    
+
+<script src="script.js"></script>
+</body> 
+</html> 
