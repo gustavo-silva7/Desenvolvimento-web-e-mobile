@@ -12,8 +12,14 @@ body.theme-dark{
   --card:#071023;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+*{
+  box-sizing:border-box
+}
+
+html,body{
+  height:100%
+}
+
 body{
   margin:0;
   font-family: Inter, sans-serif;
@@ -21,7 +27,11 @@ body{
   color:var(--text);
 }
 
-.container{max-width:1000px;margin:0 auto;padding:20px}
+.container{
+  max-width:1000px;
+  margin:0 auto;
+  padding:20px  
+}
 
 .site-header{
   padding:12px 0;
@@ -34,9 +44,17 @@ body{
   gap:16px;
 }
 
-.logo{margin:0;font-size:1.2rem}
+.logo{
+  margin:0;
+  font-size:1.2rem
+}
 
-.main-nav{display:flex;gap:12px;margin-left:12px}
+.main-nav{
+  display:flex;
+  gap:12px;
+  margin-left:12px
+}
+
 .main-nav .nav-link{
   color:var(--text);
   text-decoration:none;
@@ -65,10 +83,13 @@ body{
 
 .hero{
   padding:60px 0;
-  background:linear-gradient(180deg, rgba(37,99,235,0.1), transparent);
+  background:linear-gradient(180deg, rgba(2, 78, 241, 0.1), transparent);
+  text-align: center;
 }
 
-.section{padding:40px 0}
+.section{
+  padding:40px 0
+}
 
 .grid{
   display:grid;
@@ -109,4 +130,7 @@ body{
   text-align:center;
 }
 
-.hidden{display:none !important}
+.hidden{
+  display:none !important
+}
+
