@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Metadados essenciais -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio Profissional - Gustavo</title>
+
+  <!-- Link para o CSS principal -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonte simples via system (evita requests externas) -->
+</head>
+<body>
+  <!--
+    Layout:
+    - topo com logo e controles de tema
+    - seções: hero, sobre, projetos (cards interativos), carrossel, contato, rodapé
+    - suporte para múltiplos temas (minimal, dark, neon, glass)
+  -->
+
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <!-- Logo / Foto pequena -->
+      <div class="brand">
+        <img src="imagens/minha-foto.jpg" alt="Foto do Gustavo" class="logo" />
+        <div>
+          <div class="name">Gustavo Pereira</div>
+          <div class="role">Desenvolvedor Web & Mobile</div>
+        </div>
+      </div>
+
+      <!-- Controles à direita: menu e tema -->
+      <div class="controls">
+        <!-- Theme selector -->
+        <label for="theme-select" class="sr-only">Selecionar tema</label>
+        <select id="theme-select" title="Tema">
+          <option value="minimal">Minimal</option>
+          <option value="dark">Dark</option>
+          <option value="neon">Neon</option>
+          <option value="glass">Glassmorphism</option>
+        </select>
+
+        <!-- Smooth scroll toggle -->
+        <button id="smooth-toggle" class="btn-small" title="Alternar scroll suave">Scroll suave: ON</button>
+
+        <!-- Mobile menu toggle -->
+        <button id="menu-toggle" class="btn-small menu-btn" aria-expanded="false">Menu</button>
+      </div>
+    </div>
+
+    <!-- Navegação principal -->
+    <nav class="main-nav" id="main-nav">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <!-- HERO / Início -->
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Olá — eu sou o Gustavo</h1>
+          <p>Crio interfaces limpas, aplicativos para web e mobile e experiências que funcionam.</p>
+          <a href="#projetos" class="btn-primary">Ver Projetos</a>
+        </div>
+        <div class="hero-image">
+          <img src="imagens/foto-portifolio.jpg" alt="Foto ilustrativa" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="panel">
+      <div class="panel-content">
+        <h2>Sobre mim</h2>
+        <p>Sou estudante e desenvolvedor, com experiência em atendimento ao público e suporte administrativo.
+           Meu foco é aprender rápido, escrever código limpo e entregar soluções úteis para pessoas reais.</p>
+
+        <!-- Cartões com habilidades interativos -->
+        <div class="skill-cards">
+          <article class="card" data-tilt>
+            <h3>Front-end</h3>
+            <p>HTML, CSS, JavaScript — interfaces acessíveis e responsivas.</p>
+          </article>
+
+          <article class="card" data-tilt>
+            <h3>Mobile</h3>
+            <p>Aplicativos híbridos e responsivos para várias plataformas.</p>
+          </article>
+
+          <article class="card" data-tilt>
+            <h3>Banco de Dados</h3>
+            <p>Modelagem simples e integração com APIs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS - cards interativos -->
+    <section id="projetos" class="panel panel-projects">
+      <div class="panel-content">
+        <h2>Projetos</h2>
+        <p class="muted">Clique em um projeto para ver mais detalhes.</p>
+
+        <div class="projects-grid">
+          <!-- Cada card abre um modal com mais informações -->
+          <article class="project-card" tabindex="0" data-img="imagens/project1.png">
+            <img src="imagens/project1.png" alt="Projeto 1" />
+            <div class="project-body">
+              <h3>Projeto 1</h3>
+              <p>Landing page responsiva com animações leves.</p>
+            </div>
+          </article>
+
+          <article class="project-card" tabindex="0" data-img="imagens/project2.png">
+            <img src="imagens/project2.png" alt="Projeto 2" />
+            <div class="project-body">
+              <h3>Projeto 2</h3>
+              <p>Aplicativo de tarefas com sincronização simples.</p>
+            </div>
+          </article>
+
+          <article class="project-card" tabindex="0" data-img="imagens/project3.png">
+            <img src="imagens/project3.png" alt="Projeto 3" />
+            <div class="project-body">
+              <h3>Projeto 3</h3>
+              <p>Protótipo de e-commerce minimalista.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARROSSEL SIMPLES -->
+    <section class="panel">
+      <div class="panel-content">
+        <h2>Demonstração</h2>
+        <div class="carrossel-pro">
+          <div class="slides">
+            <img src="imagens/img1.jpg" alt="Imagem 1" />
+            <img src="imagens/img2.jpg" alt="Imagem 2" />
+            <img src="imagens/img3.png" alt="Imagem 3" />
+          </div>
+          <button class="btn small prev">⟨</button>
+          <button class="btn small next">⟩</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="panel contact-panel">
+      <div class="panel-content">
+        <h2>Contato</h2>
+        <form id="contact-form">
+          <label>
+            Nome
+            <input type="text" name="nome" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Mensagem
+            <textarea name="mensagem" rows="4" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Enviar (simulação)</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL para exibir detalhes do projeto -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <button id="modal-close" class="modal-close" aria-label="Fechar">✕</button>
+      <div class="modal-body">
+        <img id="modal-img" src="" alt="Imagem do projeto" />
+        <div id="modal-desc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© Gustavo — Portfólio • Feito com atenção aos detalhes.</p>
+    </div>
+  </footer>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

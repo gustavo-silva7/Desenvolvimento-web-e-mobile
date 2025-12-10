@@ -1,0 +1,206 @@
+/* style.css - múltiplos temas, animações, layout responsivo
+   Comentários em todo o arquivo explicam cada bloco.
+*/
+
+/* ------------------------------
+   Variáveis padrão (tema minimal)
+   ------------------------------ */
+/* :root declara variáveis CSS que controlam cores e espaçamento */
+:root{
+  --bg: #ffffff;
+  --card: #f8f8fb;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --glass-bg: rgba(255,255,255,0.06);
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.08);
+}
+
+/* ------------------------------
+   Temas alternativos (aplicados via data-theme)
+   ------------------------------ */
+/* Tema escuro */
+[data-theme='dark'] {
+  --bg: #0b0f17;
+  --card: #071023;
+  --text: #e6eef8;
+  --muted: #94a3b8;
+  --accent: #60a5fa;
+  --shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+/* Tema neon - cores vibrantes para destaque */
+[data-theme='neon'] {
+  --bg: #06060a;
+  --card: rgba(10,10,30,0.6);
+  --text: #e6f0ff;
+  --muted: #cbd5e1;
+  --accent: #00e6a8; /* verde neon */
+  --shadow: 0 12px 40px rgba(0,230,168,0.06);
+}
+
+/* Tema glass - vidro fosco */
+[data-theme='glass'] {
+  --bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+  --card: rgba(255,255,255,0.06);
+  --text: #e6eef8;
+  --muted: #cbd5e1;
+  --accent: #8b5cf6;
+  --glass-bg: rgba(255,255,255,0.08);
+  --shadow: 0 6px 20px rgba(8,10,20,0.35);
+}
+
+/* ------------------------------
+   Reset básico e layout
+   ------------------------------ */
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Conteúdo central com padding */
+main{padding-bottom:80px}
+
+/* ------------------------------
+   HEADER / NAV
+   ------------------------------ */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 20px;
+}
+
+/* Brand com foto e nome */
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:56px;height:56px;border-radius:12px;object-fit:cover;box-shadow:var(--shadow)}
+
+/* Nome e função */
+.name{font-weight:700}
+.role{font-size:13px;color:var(--muted)}
+
+/* Controls - tema e menu */
+.controls{display:flex;gap:10px;align-items:center}
+.btn-small{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:8px;color:var(--text);cursor:pointer}
+.menu-btn{display:none}
+
+/* Navegação principal (desktop) */
+.main-nav{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  padding:8px 0 16px 0;
+  background:transparent;
+}
+.main-nav a{color:var(--text);text-decoration:none;padding:6px 10px;border-radius:8px;transition:all .18s}
+.main-nav a:hover{background:var(--card);transform:translateY(-2px)}
+
+/* ------------------------------
+   HERO
+   ------------------------------ */
+.hero{
+  max-width:1100px;margin:28px auto;padding:24px;
+  border-radius:16px;
+  display:block;
+}
+.hero-inner{display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+.hero-text{flex:1;min-width:260px}
+.hero-text h1{font-size:32px;margin-bottom:12px}
+.hero-text p{color:var(--muted);margin-bottom:18px}
+.btn-primary{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;border:none;cursor:pointer}
+
+/* Hero image */
+.hero-image img{width:320px;border-radius:12px;box-shadow:var(--shadow);object-fit:cover}
+
+/* ------------------------------
+   PANELS / SECTIONS
+   ------------------------------ */
+.panel{max-width:1100px;margin:40px auto;padding:20px;border-radius:12px}
+.panel-content{background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
+
+/* Títulos e texto */
+.panel-content h2{margin-top:0}
+.muted{color:var(--muted)}
+
+/* ------------------------------
+   SKILL CARDS (interativos)
+   ------------------------------ */
+.skill-cards{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+  padding:16px;border-radius:12px;min-width:180px;flex:1;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 18px 40px rgba(2,6,23,0.4)}
+
+/* ------------------------------
+   PROJECTS GRID
+   ------------------------------ */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+.project-card{background:var(--glass-bg);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease}
+.project-card img{width:100%;height:160px;object-fit:cover}
+.project-body{padding:12px}
+
+/* Focus acessível */
+.project-card:focus{outline:3px solid rgba(37,99,235,0.18);transform:translateY(-6px)}
+
+/* ------------------------------
+   CARROSSEL
+   ------------------------------ */
+.carrossel-pro{position:relative;max-width:700px;margin:18px auto;overflow:hidden;border-radius:12px}
+.carrossel-pro .slides{display:flex;transition:transform .5s ease}
+.carrossel-pro img{width:100%;height:320px;object-fit:cover}
+.btn.small{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;padding:10px;border-radius:8px}
+.prev{left:8px}.next{right:8px}
+
+/* ------------------------------
+   CONTACT FORM
+   ------------------------------ */
+.contact-panel input, .contact-panel textarea{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;color:var(--text)}
+.form-actions{margin-top:12px}
+
+/* ------------------------------
+   MODAL
+   ------------------------------ */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:60}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{background:var(--card);padding:18px;border-radius:12px;max-width:900px;width:90%}
+.modal-close{position:absolute;right:18px;top:18px;background:transparent;border:none;color:var(--text);font-size:20px}
+
+/* ------------------------------
+   RODAPÉ
+   ------------------------------ */
+.site-footer{margin-top:40px;padding:16px 0;text-align:center;color:var(--muted)}
+
+/* ------------------------------
+   RESPONSIVIDADE
+   ------------------------------ */
+@media (max-width:900px){
+  .hero-image img{width:220px}
+  .main-nav{display:none}
+  .menu-btn{display:inline-block}
+  .controls select{display:none}
+}
+
+/* small devices */
+@media (max-width:520px){
+  .hero-inner{flex-direction:column-reverse;align-items:flex-start}
+  .hero-image img{width:100%}
+}
