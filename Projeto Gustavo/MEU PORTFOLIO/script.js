@@ -1,112 +1,156 @@
-// script.js - interações: tema, smooth scroll, carrossel, modal e efeitos
-// Seleciona elementos que usaremos
+// script.js — tema, scroll suave, menu, carrossel, modal, tilt, formulário
+
+// ======================
+// ELEMENTOS PRINCIPAIS
+// ======================
+const htmlEl      = document.documentElement;
 const themeSelect = document.getElementById('theme-select');
-const smoothToggle = document.getElementById('smooth-toggle');
-const htmlEl = document.documentElement; // para aplicar data-theme
-const menuBtn = document.getElementById('menu-toggle');
-const mainNav = document.getElementById('main-nav');
+const smoothBtn   = document.getElementById('smooth-toggle');
+const menuBtn     = document.getElementById('menu-toggle');
+const mainNav     = document.getElementById('main-nav');
 
-// Aplica tema inicial (minimal)
-htmlEl.setAttribute('data-theme','minimal');
+// ======================
+// TEMA
+// ======================
+htmlEl.dataset.theme = 'white';
 
-// Quando o usuário muda o tema, atualizamos o atributo data-theme
-themeSelect.addEventListener('change', (e) => {
-  const theme = e.target.value;
-  htmlEl.setAttribute('data-theme', theme);
+themeSelect.addEventListener('change', e => {
+  htmlEl.dataset.theme = e.target.value;
 });
 
-// Controle de scroll suave: ativa/desativa comportamento de rolagem
+// ======================
+// SCROLL SUAVE
+// ======================
 let smoothEnabled = true;
-smoothToggle.addEventListener('click', () => {
+
+smoothBtn.addEventListener('click', () => {
   smoothEnabled = !smoothEnabled;
-  document.documentElement.style.scrollBehavior = smoothEnabled ? 'smooth' : 'auto';
-  smoothToggle.textContent = 'Scroll suave: ' + (smoothEnabled ? 'ON' : 'OFF');
+  htmlEl.style.scrollBehavior = smoothEnabled ? 'smooth' : 'auto';
+  smoothBtn.textContent = `Scroll suave: ${smoothEnabled ? 'ON' : 'OFF'}`;
 });
 
-// Mobile menu toggle (simples)
+// ======================
+// MENU MOBILE
+// ======================
 menuBtn.addEventListener('click', () => {
-  const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-  menuBtn.setAttribute('aria-expanded', String(!expanded));
-  mainNav.style.display = expanded ? 'none' : 'flex';
+  const open = menuBtn.getAttribute('aria-expanded') === 'true';
+  menuBtn.setAttribute('aria-expanded', !open);
+  mainNav.style.display = open ? 'none' : 'flex';
 });
 
-// CARROSSEL - básico com botões e autoplay
-const slides = document.querySelector('.carrossel-pro .slides');
-const slideImgs = document.querySelectorAll('.carrossel-pro .slides img');
-let cIndex = 0;
+// ======================
+// CARROSSEL
+// ======================
+const slides     = document.querySelector('.carrossel-pro .slides');
+const slideImgs  = document.querySelectorAll('.carrossel-pro .slides img');
+const nextBtns   = document.querySelectorAll('.carrossel-pro .next');
+const prevBtns   = document.querySelectorAll('.carrossel-pro .prev');
+let cIndex       = 0;
 
-function updateSlides(){
+const updateSlides = () => {
   slides.style.transform = `translateX(${-cIndex * 100}%)`;
-}
+};
 
-document.querySelectorAll('.carrossel-pro .next').forEach(btn=>{
-  btn.addEventListener('click', () => { cIndex = (cIndex +1) % slideImgs.length; updateSlides(); });
+// botões
+nextBtns.forEach(btn => btn.addEventListener('click', () => {
+  cIndex = (cIndex + 1) % slideImgs.length;
+  updateSlides();
+}));
+
+prevBtns.forEach(btn => btn.addEventListener('click', () => {
+  cIndex = (cIndex - 1 + slideImgs.length) % slideImgs.length;
+  updateSlides();
+}));
+
+// autoplay
+let autoPlay = setInterval(() => {
+  cIndex = (cIndex + 1) % slideImgs.length;
+  updateSlides();
+}, 3500);
+
+slides.addEventListener('mouseenter', () => clearInterval(autoPlay));
+slides.addEventListener('mouseleave', () => {
+  autoPlay = setInterval(() => {
+    cIndex = (cIndex + 1) % slideImgs.length;
+    updateSlides();
+  }, 3500);
 });
-document.querySelectorAll('.carrossel-pro .prev').forEach(btn=>{
-  btn.addEventListener('click', () => { cIndex = (cIndex -1 + slideImgs.length) % slideImgs.length; updateSlides(); });
-});
 
-// autoplay suave (pausa ao focar)
-let auto = setInterval(()=>{ cIndex = (cIndex +1) % slideImgs.length; updateSlides(); }, 3500);
-slides.addEventListener('mouseenter', ()=> clearInterval(auto));
-slides.addEventListener('mouseleave', ()=> { auto = setInterval(()=>{ cIndex = (cIndex +1) % slideImgs.length; updateSlides(); }, 3500); });
-
-// PROJECT MODAL - abre detalhes ao clicar em um card
-const projectCards = document.querySelectorAll('.project-card');
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
-const modalDesc = document.getElementById('modal-desc');
+// ======================
+// MODAL DE PROJETOS
+// ======================
+const cards      = document.querySelectorAll('.project-card');
+const modal      = document.getElementById('modal');
+const modalImg   = document.getElementById('modal-img');
+const modalDesc  = document.getElementById('modal-desc');
 const modalClose = document.getElementById('modal-close');
 
-projectCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const img = card.dataset.img || card.querySelector('img').src;
-    const title = card.querySelector('h3').textContent;
-    const text = card.querySelector('p').textContent;
-    modalImg.src = img;
-    modalDesc.innerHTML = `<h3>${title}</h3><p>${text}</p>`;
-    modal.setAttribute('aria-hidden','false');
-    // Lock scroll while modal aberto
-    document.body.style.overflow = 'hidden';
-  });
+const openModal = card => {
+  const img   = card.dataset.img || card.querySelector('img')?.src;
+  const title = card.querySelector('h3')?.textContent || '';
+  const text  = card.querySelector('p')?.textContent || '';
 
-  // also support keyboard open via Enter
-  card.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter') card.click();
+  modalImg.src = img;
+  modalDesc.innerHTML = `<h3>${title}</h3><p>${text}</p>`;
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+};
+
+const closeModal = () => {
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+};
+
+cards.forEach(card => {
+  card.addEventListener('click', () => openModal(card));
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter') openModal(card);
   });
 });
 
-// fechar modal
 modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+modal.addEventListener('click', e => {
+  if (e.target === modal) closeModal();
+});
 
-function closeModal(){
-  modal.setAttribute('aria-hidden','true');
-  document.body.style.overflow = '';
-}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+    closeModal();
+  }
+});
 
-// TILT effect simples: aplica transform conforme mouse move em elementos com [data-tilt]
-document.querySelectorAll('[data-tilt]').forEach(el=>{
-  el.addEventListener('mousemove', (ev)=>{
+// ======================
+// EFEITO TILT
+// ======================
+document.querySelectorAll('[data-tilt]').forEach(el => {
+  el.addEventListener('mousemove', ev => {
     const rect = el.getBoundingClientRect();
     const x = ev.clientX - rect.left;
     const y = ev.clientY - rect.top;
-    const px = (x / rect.width - 0.5) * 12; // intensidade
-    const py = (y / rect.height - 0.5) * -8;
-    el.style.transform = `perspective(600px) rotateX(${py}deg) rotateY(${px}deg) translateZ(6px)`;
+
+    const rotY = (x / rect.width - 0.5) * 12;
+    const rotX = (y / rect.height - 0.5) * -8;
+
+    el.style.transform = `
+      perspective(600px)
+      rotateX(${rotX}deg)
+      rotateY(${rotY}deg)
+      translateZ(6px)
+    `;
   });
-  el.addEventListener('mouseleave', ()=> el.style.transform = '');
+
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = '';
+  });
 });
 
-// CONTACT FORM - apenas simula envio e mostra feedback
+// ======================
+// FORMULÁRIO DE CONTATO
+// ======================
 const form = document.getElementById('contact-form');
-form.addEventListener('submit', (e) => {
+
+form.addEventListener('submit', e => {
   e.preventDefault();
   alert('Formulário enviado (simulação). Obrigado — vou responder por email quando possível.');
   form.reset();
-});
-
-// Acessibilidade: fechar modal com Escape
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
 });
