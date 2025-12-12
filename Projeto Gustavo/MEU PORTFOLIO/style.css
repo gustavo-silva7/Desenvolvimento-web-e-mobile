@@ -1,0 +1,162 @@
+/* ================================================
+   VARIÁVEIS E TEMAS
+   ================================================ */
+:root {
+  --bg: #ffffff;
+  --card: #f8f8fb;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --glass-bg: rgba(255,255,255,0.06);
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.08);
+}
+
+/* Tema dark */
+[data-theme='escuro'] {
+  --bg: #0b0f17;
+  --card: #071023;
+  --text: #e6eef8;
+  --muted: #94a3b8;
+  --accent: #60a5fa;
+  --shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+/*formatação basica*/
+*{ 
+    box-sizing: border-box; 
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Times New Roman', Times, serif;
+    transition: background .4s ease, color .4s ease;
+}
+
+
+main {
+    padding-bottom: 60px;
+}
+
+.cabeca-site {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  /* background-color: rgb(206, 206, 214); */
+}
+
+.div-cabeca {
+  max-width: 1100px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.identificacao{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.nome{
+    font-weight: 700;
+}
+
+.descricao{
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.menu-navegacao{
+    display: flex;
+    gap: 20px;
+    padding: 10px 0 20px;
+    justify-content: center;
+}
+
+.menu-navegacao a{
+    color: var(--text);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.menu-navegacao a:hover{
+    background: var(--card);
+    transform: translateY(-2px);
+}
+
+/* ================================================
+   BOTÃO DE TEMA (SOL ↔ LUA) – ANIMAÇÃO
+   ================================================ */
+
+#trocar-tema {
+  width: 60px;
+  height: 32px;
+  border-radius: 50px;
+  background: var(--card);
+  border: none;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  transition: background .3s ease, box-shadow .3s ease;
+  box-shadow: var(--shadow);
+}
+
+[data-theme='escuro'] #seleciona-tema {
+  background: #1e293b;
+}
+
+/* ÍCONES */
+#trocar-tema .icon {
+  position: absolute;
+  font-size: 19px;
+  transition: transform .35s ease, opacity .3s ease;
+}
+
+/* Sol visível no modo claro */
+#trocar-tema .sol {
+  left: 10px;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Lua escondida */
+#trocar-tema .lua {
+  right: 10px;
+  transform: translateX(40px);
+  opacity: 0;
+}
+
+/* ——— TEMA ESCURO ——— */
+[data-theme='escuro'] #trocar-tema .sol {
+  transform: translateX(-40px);
+  opacity: 0;
+}
+
+[data-theme='escuro'] #trocar-tema .lua {
+  transform: translateX(0);
+  opacity: 1;
+}

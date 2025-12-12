@@ -154,3 +154,49 @@ form.addEventListener('submit', e => {
   alert('Formulário enviado (simulação). Obrigado — vou responder por email quando possível.');
   form.reset();
 });
+
+
+
+
+
+//teste de temas
+
+const btn = document.getElementById("toggle-theme");
+const icon = document.getElementById("icon");
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  const dark = document.body.classList.contains("dark");
+
+  icon.textContent = dark ? "☀️" : "🌙"; // troca LUA ↔ SOL
+
+  localStorage.setItem("theme", dark ? "dark" : "light");
+});
+
+// aplica tema salvo
+const saved = localStorage.getItem("theme");
+if (saved === "dark") {
+  document.body.classList.add("dark");
+  icon.textContent = "☀️";
+}
+
+
+
+
+
+// teste
+const botao = document.getElementById("trocar-tema");
+
+botao.addEventListener("click", () => {
+  const atual = document.documentElement.getAttribute("data-theme");
+  const novo = atual === "escuro" ? "claro" : "escuro";
+  document.documentElement.setAttribute("data-theme", novo);
+  localStorage.setItem("tema", novo);
+});
+
+// aplica tema salvo
+const salvo = localStorage.getItem("tema");
+if (salvo) {
+  document.documentElement.setAttribute("data-theme", salvo);
+}
