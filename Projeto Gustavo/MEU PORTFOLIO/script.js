@@ -13,7 +13,7 @@ botao.addEventListener("click", () => {
 });
 
 //APLICA TEMA SALVO
-const saved = localStorage.getItem("temas")
+const salvo = localStorage.getItem("tema")
 // if (saved === "escuro"){
 //     document.body.classList.add("escuro");}
 if (salvo) {

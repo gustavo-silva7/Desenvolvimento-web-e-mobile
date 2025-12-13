@@ -186,7 +186,7 @@ if (saved === "dark") {
 
 
 // teste
-const botao = document.getElementById("trocar-tema");
+const botao = document.getElementById("selecionar-tema");
 
 botao.addEventListener("click", () => {
   const atual = document.documentElement.getAttribute("data-theme");

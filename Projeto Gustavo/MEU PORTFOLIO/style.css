@@ -24,8 +24,10 @@
 
 /*formatação basica*/
 *{ 
-    box-sizing: border-box; 
-}
+    box-sizing: border-box;
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    /* transition: all 0.35s cubic-bezier(.4,0,.2,1); */
+} 
 
 html, body {
     margin: 0;
@@ -34,9 +36,9 @@ html, body {
     color: var(--text);
     -webkit-font-smoothing: antialiased;
     font-family: 'Times New Roman', Times, serif;
-    transition: background .4s ease, color .4s ease;
+    /* transition: background .4s ease, color .4s ease; */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
-
 
 main {
     padding-bottom: 60px;
@@ -45,7 +47,7 @@ main {
 .cabeca-site {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
   backdrop-filter: blur(6px);
   background: rgba(255,255,255,0.04);
   border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -108,21 +110,27 @@ main {
    BOTÃO DE TEMA (SOL ↔ LUA) – ANIMAÇÃO
    ================================================ */
 
-#trocar-tema {
+#selecionar-tema {
   width: 60px;
   height: 32px;
-  border-radius: 50px;
+  border-radius: 50%;
   background: var(--card);
   border: none;
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 8px;
-  transition: background .3s ease, box-shadow .3s ease;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  /* padding: 0 8px; */
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
   box-shadow: var(--shadow);
+}
+
+.botao-tema{
+  border-radius: 10px;
+  border: none;
+
 }
 
 [data-theme='escuro'] #seleciona-tema {
@@ -130,33 +138,41 @@ main {
 }
 
 /* ÍCONES */
-#trocar-tema .icon {
+#seleciona-tema .icon {
   position: absolute;
-  font-size: 19px;
-  transition: transform .35s ease, opacity .3s ease;
+  top:50%;
+  left: 50%;
+  font-size: 18px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.45s cubic-bezier(.68,-0.55,.27,1.55), opacity .3s ease;
+}
+
+#seleciona-tema :active{
+  transform: scale(0.94);
 }
 
 /* Sol visível no modo claro */
-#trocar-tema .sol {
-  left: 10px;
-  transform: translateX(0);
+#seleciona-tema .sol {
+  /* left: 10px; */
+  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
 
 /* Lua escondida */
-#trocar-tema .lua {
-  right: 10px;
-  transform: translateX(40px);
+#seleciona-tema .lua {
+  /* right: 10px; */
+  transform: translate(-50%, -50%) scale(0.5);
   opacity: 0;
 }
 
 /* ——— TEMA ESCURO ——— */
-[data-theme='escuro'] #trocar-tema .sol {
-  transform: translateX(-40px);
+[data-theme='escuro'] #seleciona-tema .sol {
+  transform: translate(-50%, -50%) scale(0.5);
   opacity: 0;
 }
 
-[data-theme='escuro'] #trocar-tema .lua {
-  transform: translateX(0);
+[data-theme='escuro'] #seleciona-tema .lua {
+  transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
+
