@@ -3,7 +3,7 @@
    ================================================ */
 :root {
   --bg: #ffffff;
-  --card: #f8f8fb;
+  --cartao: #f8f8fb;
   --text: #111827;
   --muted: #6b7280;
   --accent: #2563eb;
@@ -15,7 +15,7 @@
 /* Tema dark */
 [data-theme='dark'] {
   --bg: #0b0f17;
-  --card: #071023;
+  --cartao: #071023;
   --text: #e6eef8;
   --muted: #94a3b8;
   --accent: #60a5fa;
