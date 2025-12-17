@@ -10,6 +10,8 @@
   --glass-bg: rgba(255, 255, 255, 0.123);
   --radius: 14px;
   --shadow: 0 8px 24px rgba(16,24,40,0.08);
+  --form: #a8bde7; 
+  -input: #5e8ce8;
 }
 
 /* Tema dark */
@@ -20,6 +22,8 @@
   --muted: #94a3b8;
   --accent: #60a5fa;
   --shadow: 0 10px 30px rgba(2,6,23,0.6);
+  --form: rgb(53, 53, 53);
+  --input:  #676565;
 }
 
 /*formatação basica*/
@@ -362,15 +366,18 @@ main {
   right: 8px;
 }
 
-.CONTATO-PAINEL{
-  background: blue;
-  /* align-items: center;*/
-  /* text-align: center;  */
+.title-contato{
+  text-align: center;
+  background: transparent;
+  background-color: transparent;
+}
+
+.CONTATO-PAINEL div{
+  background: var(--form);
   display: block;
   white-space: pre-line;
-  /* margin-top: 5px; */
   width: 100%;
-  /* padding:15px; */
+  margin-top: 100px;
 }
 
 .CONTATO-PAINEL input,
@@ -380,9 +387,10 @@ main {
   border-radius: 10px;
   /* margin-top: 5px; */
   border: solid 1px black;
-  background: rgba(78, 77, 77, 0.127);
-  color: var(--text);
+  background: var(--input);
+  color: black;
   cursor: text; 
+  /* background-color: #676565; */
   /* align-items: center; */
 }
 
