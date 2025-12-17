@@ -21,58 +21,6 @@ document.documentElement.setAttribute("data-theme", salvo);
 }
 
 // // //CARROSSEL
-// document.addEventListener('DOMContentLoaded', () => {
-//     const slides = document.querySelector('.interativo-carro .slides-carro');
-//     const imagemslides = document.querySelectorAll('.interativo-carro .slides-carro img');
-//     const proximobnt = document.querySelector('.interativo-carro .proximo');
-//     const anteriorbnt = document.querySelector('.interativo-carro .anterior');
-
-//     let cIndex = 0;
-
-//     const updateSlides = () => {
-//     slides.style.transform = `translateX(-${cIndex * 100}%)`;
-//     };
-
-//     // PRÓXIMO (limitado)
-//     proximobnt.forEach(button => {
-//     button.addEventListener('click', () => {
-//         if (cIndex < imagemslides.length - 1) {
-//         cIndex++;
-//         updateSlides();
-//         }
-//     });
-//     });
-
-//     // ANTERIOR (loopa corretamente)
-//     anteriorbnt.forEach(button => {
-//     button.addEventListener('click', () => {
-//         if (cIndex === 0) {
-//             cIndex = imagemslides.length - 1;
-//         } else {
-//             cIndex--;
-//         }
-//         updateSlides();
-//     });
-//     });
-
-//     // AUTO SLIDE
-//     let autoSlideInterval = setInterval(() => {
-//         cIndex = (cIndex + 1) % imagemslides.length;
-//         updateSlides();
-//     }, 4000);
-
-//     slides.addEventListener('mouseenter', () => {
-//         clearInterval(autoSlideInterval);
-//     });
-
-//     slides.addEventListener('mouseleave', () => {
-//         autoSlideInterval = setInterval(() => {
-//             cIndex = (cIndex + 1) % imagemslides.length;
-//             updateSlides();
-//     }, 4000);
-//     });
-// });
-
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelector('.interativo-carro .slides-carro');
   const imagemslides = document.querySelectorAll('.interativo-carro .slides-carro img');
@@ -115,3 +63,33 @@ document.addEventListener('DOMContentLoaded', () => {
    });
 });
 
+// ======================
+// CONTATO – EMAILJS
+// ======================
+// inicializa o EmailJS
+
+(function () {
+  emailjs.init("CkvGeXW-STwqN7XC1");
+})();
+
+const form = document.getElementById("contato-form");
+console.log(form);
+
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm(
+    "service_gqby24l",
+    "template_kkiotcm",
+    this
+  )
+  .then(() => {
+    alert("Obrigado por sua mensagem, vou responder em breve");
+    form.reset();
+  })
+  .catch(error => {
+    console.error("Erro:", error);
+    alert("Erro ao enviar mensagem. Tente novamente.");
+  });
+});

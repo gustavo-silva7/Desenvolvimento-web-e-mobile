@@ -200,3 +200,39 @@ const salvo = localStorage.getItem("tema");
 if (salvo) {
   document.documentElement.setAttribute("data-theme", salvo);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+const form = document.getElementById('contact-form');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const dados = {
+    nome: form.nome.value,
+    email: form.email.value,
+    mensagem: form.mensagem.value
+  };
+
+  emailjs.send(
+    "SEU_SERVICE_ID",
+    "SEU_TEMPLATE_ID",
+    dados
+  )
+  .then(() => {
+    alert("Mensagem enviada com sucesso! 👍");
+    form.reset();
+  })
+  .catch(() => {
+    alert("Erro ao enviar a mensagem. Tente novamente.");
+  });
+});
