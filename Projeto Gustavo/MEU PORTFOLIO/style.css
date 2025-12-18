@@ -183,9 +183,9 @@ main {
 
 .INICIO{
   max-width: 2000px;
-  margin: ´40px auto;
+  margin: 40px auto;
   border-radius: 20px;
-  padding: 25px;
+  padding: 60px;
 }
 
 .INICIO-CONTAINER{
@@ -231,7 +231,7 @@ main {
 .SOBRE{
   max-width: 2000px;
   margin: 40px auto;
-  padding: 30px;
+  padding: 60px;
 }
 
 .SOBRE-PAINEL{
@@ -260,6 +260,14 @@ main {
 .cartao:hover{
   transform: translateY(-18px) scale(1.02);
   box-shadow: 0 18px 40px rgba(2,6,23,0.4);
+}
+
+.PROJETOS{
+  padding: 60px;
+}
+
+.PROJETOS-PAINEL h2{
+  font-size: 32px;
 }
 
 .projetos-click{
@@ -351,7 +359,8 @@ main {
   text-align: center;
   background: none;
   /* margin-top: 100px; */
-  line-height: 1; 
+  line-height: 1;
+  padding: 10px; 
 }
 
 #titulo-contato h2 {
@@ -382,7 +391,8 @@ main {
 .form-actions{
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 0;
+
 } 
 
 .bnt-form{
@@ -400,12 +410,23 @@ main {
   align-items: center; 
   /* gap: 10px; */
   justify-content: center; 
-  margin-top: 10px;
+  margin-top: 50px;
   padding: 25px;
 }
 
-@media (min-width: 1024px) {
-  .cartao-painel {
-    flex-direction: row;
-  }
+.icons-footer img{
+  max-width: 25px;
+  margin: 10px;
+  border-radius: 9px; 
+  cursor: pointer;
+}
+
+footer{
+  text-align: center;
+  background: blue;
+  width: 100%;
+}
+
+footer p{
+  margin: 10px;
 }
