@@ -7,20 +7,18 @@
 </head>
 <body>
 
-<!-- TELA DE MODO -->
+<!-- ESCOLHA DE MODO -->
 <div id="modeScreen" class="screen active neon-bg">
   <h1 class="neon-title">NEON SNAKE</h1>
-
   <div class="card">
     <button id="soloBtn">🎮 1 Jogador</button>
     <button id="battleBtn">⚔️ Modo Batalha</button>
   </div>
 </div>
 
-<!-- CONFIGURAÇÕES -->
+<!-- CONFIG -->
 <div id="configScreen" class="screen neon-bg">
   <h2 id="configTitle" class="neon-subtitle"></h2>
-
   <div class="card">
     <input id="p1Name" placeholder="Nome Jogador 1">
     <input id="p2Name" placeholder="Nome Jogador 2">
@@ -36,11 +34,6 @@
       <option value="60">60 segundos</option>
       <option value="90">90 segundos</option>
     </select>
-
-    <label class="toggle">
-      <input type="checkbox" id="wallDeath" checked>
-      <span>💥 Morrer ao bater na parede</span>
-    </label>
 
     <button id="startGame">▶️ Iniciar</button>
   </div>
@@ -63,11 +56,18 @@
   </div>
 
   <p id="timerBox">⏱️ Tempo: <span id="timer">0</span>s</p>
+
+  <!-- RANKING -->
+  <div id="ranking" class="neon-box">
+    <h3>🏆 Ranking</h3>
+    <ol id="rankingList"></ol>
+  </div>
 </div>
 
-<!-- RESULTADO -->
+<!-- MORTE / RESULTADO -->
 <div id="resultScreen" class="screen neon-bg">
   <h2 id="resultText" class="neon-subtitle"></h2>
+  <p id="bestScoreText"></p>
   <button onclick="location.reload()">↩ Voltar</button>
 </div>
 
