@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
    let autoSlideInterval = setInterval(() => {
      cIndex = (cIndex + 1) % imagemslides.length;
      updateSlides();
-   }, 4000);
+   }, 6000);
 
    slides.addEventListener('mouseenter', () => {
      clearInterval(autoSlideInterval);
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
      autoSlideInterval = setInterval(() => {
        cIndex = (cIndex + 1) % imagemslides.length;
        updateSlides();
-     }, 4000);
+     }, 6000);
    });
 });
 
