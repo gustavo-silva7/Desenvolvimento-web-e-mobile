@@ -1,3 +1,8 @@
+"""
+Calculadora desenvolvida em Python com Tkinter.
+Execute com: python calculadora.py
+"""
+
 import tkinter as tk
 import math
 

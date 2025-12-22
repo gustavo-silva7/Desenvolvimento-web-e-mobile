@@ -93,3 +93,19 @@ form.addEventListener("submit", function (e) {
     alert("Erro ao enviar mensagem. Tente novamente.");
   });
 });
+
+//====================
+//ABRIR OS PROJETOS 
+//====================
+function jogar() {
+    window.location.href = "Projetos/jogoHTML/index.html";
+}
+
+function calcular() {
+  alert(
+    "Este projeto foi desenvolvido em Python com Tkinter.\n\n" +
+    "Para executar:\n" +
+    "1️⃣ Baixe o projeto no GitHub\n" +
+    "2️⃣ Execute o arquivo calculadora.py com Python instalado"
+  );
+}
