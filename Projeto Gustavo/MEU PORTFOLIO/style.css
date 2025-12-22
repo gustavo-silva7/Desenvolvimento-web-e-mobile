@@ -443,3 +443,42 @@ footer{
 footer p{
   margin: 10px;
 }
+
+.corpo-projeto button {
+  display: inline-flex;              /* permite centralização correta */
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 18px;
+  margin-top: 12px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: var(--text);                /* usa a cor do tema */
+  background-color: var(--card);     /* mesma base dos cards */
+
+  border: 1px solid var(--primary);  /* destaque sutil */
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.corpo-projeto button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.corpo-projeto button:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
